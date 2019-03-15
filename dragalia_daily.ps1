@@ -19,7 +19,7 @@ function singleTap($x, $y) {
 }
 
 function TapRepeat() {
-    DoubleTap 214 1843
+    SingleTap 214 1843
     Start-Sleep -Seconds $sleepTime
 }
 
@@ -128,7 +128,7 @@ function Repeat($repeatCount, $repeatInterval) {
 }
 
 
-$AvenueToPowerRunTime = 130
+$AvenueToPowerRunTime = 160
 Write-Host "Avenue To Power"
 scrollToPower
 tapAvenueToPower
@@ -137,11 +137,11 @@ tapFirstAdventurer
 tapBeginQuest
 sleepAndActivateDragon $AvenueToPowerRunTime
 closeDailyBonus
-Repeat 1 $AvenueToPowerRunTime
+Repeat 2 $AvenueToPowerRunTime
 tapNext
 TapBack
 
-$AvenueToFortuneRunTime = 90
+$AvenueToFortuneRunTime = 110
 Write-Host "Avenue To Fortune"
 scrollToPower
 tapAvenueToFortune
@@ -150,7 +150,7 @@ tapFirstAdventurer
 tapBeginQuest
 sleepAndActivateDragon $AvenueToFortuneRunTime
 closeDailyBonus
-Repeat 1 $AvenueToFortuneRunTime
+Repeat 2 $AvenueToFortuneRunTime
 tapNext
 TapBack
 

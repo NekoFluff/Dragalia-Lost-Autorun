@@ -119,6 +119,16 @@ function sleepAndActivateDragon($repeatInterval) {
 function Repeat($repeatCount, $repeatInterval) {
     For ($i=1; $i -le $repeatCount; $i++) {
         Write-Host "Repeat Count:" $i
+
+        cancelFriendRequest
+        tapNext # Next... (after quest completion)
+        Start-Sleep -Seconds 1
+        tapNext # Rewards
+        Start-Sleep -Seconds 1
+        tapNext # Tap to Proceed
+
+        SingleTap 500 1700 # Claim rewards
+
         tapRepeat
         tapWithStamina
         tapConfirm
@@ -128,7 +138,14 @@ function Repeat($repeatCount, $repeatInterval) {
     }
 }
 
-sleepAndActivateDragon 135
-Repeat 2 135
+function cancelFriendRequest() {
+    SingleTap 300 1300
+    Start-Sleep -Seconds $sleepTime
+}
+
+
+
+sleepAndActivateDragon 95
+Repeat 5 95
 
 
