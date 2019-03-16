@@ -90,6 +90,9 @@ function tapNext() {
 function closeDailyBonus() {
     DoubleTap 550 1400
     DoubleTap 550 1240
+    DoubleTap 550 1533
+    DoubleTap 550 1400
+    DoubleTap 550 1240
     Start-Sleep -Seconds $sleepTime
 }
 
@@ -145,7 +148,7 @@ function cancelFriendRequest() {
 
 
 
-sleepAndActivateDragon 95
-Repeat 5 95
+sleepAndActivateDragon 100
+Repeat 5 100
 
 

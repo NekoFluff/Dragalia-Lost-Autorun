@@ -89,7 +89,11 @@ function tapNext() {
 function closeDailyBonus() {
     DoubleTap 550 1400
     DoubleTap 550 1240
+    DoubleTap 550 1533
+    DoubleTap 550 1400
+    DoubleTap 550 1240
     Start-Sleep -Seconds $sleepTime
+    tapClaimReward
 }
 
 function activateDragon() {
@@ -127,6 +131,12 @@ function Repeat($repeatCount, $repeatInterval) {
     }
 }
 
+function tapClaimReward() {
+    SingleTap 500 1700 # Claim rewards
+    Start-Sleep -Seconds $sleepTime
+}
+
+
 
 $AvenueToPowerRunTime = 160
 Write-Host "Avenue To Power"
@@ -137,7 +147,7 @@ tapFirstAdventurer
 tapBeginQuest
 sleepAndActivateDragon $AvenueToPowerRunTime
 closeDailyBonus
-Repeat 2 $AvenueToPowerRunTime
+Repeat 1 $AvenueToPowerRunTime
 tapNext
 TapBack
 
@@ -150,10 +160,9 @@ tapFirstAdventurer
 tapBeginQuest
 sleepAndActivateDragon $AvenueToFortuneRunTime
 closeDailyBonus
-Repeat 2 $AvenueToFortuneRunTime
+Repeat 1 $AvenueToFortuneRunTime
 tapNext
 TapBack
-
 
 $ElementalRuinsRunTime = 130
 Write-Host "Elemental Ruins"
