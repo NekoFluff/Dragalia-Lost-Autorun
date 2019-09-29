@@ -20,7 +20,23 @@ function singleTap($x, $y) {
 }
 
 function TapRepeat() {
-    SingleTap 214 1843
+    SingleTap 141 1840
+    Start-Sleep -Seconds $sleepTime
+}
+
+function sendFriendRequest() {
+    SingleTap 775 1289
+    Start-Sleep -Seconds $sleepTime
+}
+
+function sendFriendRequest() {
+    SingleTap 775 1289
+    Start-Sleep -Seconds $sleepTime
+    closeFriendRequestError
+}
+
+function closeFriendRequestError() {
+    SingleTap 548 1286
     Start-Sleep -Seconds $sleepTime
 }
 
@@ -125,13 +141,15 @@ function Repeat($repeatCount, $repeatInterval) {
         tapRepeat
         tapWithStamina
         tapConfirm
-        Write-Host "Sleeping" 
+        Write-Host "Running dungeon..." 
         sleepAndActivateDragon $repeatInterval
+        sendFriendRequest
         closeDailyBonus
     }
 }
 
-sleepAndActivateDragon 135
-Repeat 2 135
+Repeat 2 100
+#sleepAndActivateDragon 100
+
 
 
