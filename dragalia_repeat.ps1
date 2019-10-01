@@ -7,16 +7,18 @@ foreach ($_ in GetValues) {
     Write-Host "s: " $_
 }
 
+
+$device = 'd1f0ad9e'
 $sleepTime = 2
 $repeatInterval = 120+20
 
 function doubleTap($x, $y) {
-    adb shell input tap $x $y
-    adb shell input tap $x $y
+    adb -s $device shell input tap $x $y
+    adb -s $device shell input tap $x $y
 }
 
 function singleTap($x, $y) {
-    adb shell input tap $x $y
+    adb -s $device shell input tap $x $y
 }
 
 function TapRepeat() {
@@ -36,6 +38,11 @@ function sendFriendRequest() {
 }
 
 function closeFriendRequestError() {
+    SingleTap 548 1286
+    Start-Sleep -Seconds $sleepTime
+}
+
+function closeFriendRequestSent() {
     SingleTap 548 1286
     Start-Sleep -Seconds $sleepTime
 }
@@ -124,13 +131,13 @@ function activateSkill1() {
 
 function sleepAndActivateDragon($repeatInterval) {
     $tapTimeInterval = 2
-    For ($time=1; $time -lt $repeatInterval; $time += $tapTimeInterval) {
+    For ($time=1; $time -lt $repeatInterval; $time += $sleepTime + 2 + 1) {
         Start-Sleep -Seconds $tapTimeInterval
         activateDragon
         activateSkill1
         Write-Host "Time:" $time
         #tapRepeat
-        $time += $sleepTime + 2 + 1
+        #$time += $sleepTime + 2 + 1
     }
 }
 
@@ -148,8 +155,9 @@ function Repeat($repeatCount, $repeatInterval) {
     }
 }
 
-Repeat 2 100
-#sleepAndActivateDragon 100
+#sleepAndActivateDragon 60
+Repeat 14 120
+
 
 
 
