@@ -156,7 +156,7 @@ function Repeat($repeatCount, $repeatInterval) {
 }
 
 #sleepAndActivateDragon 60
-Repeat 14 120
+Repeat 14 100
 
 
 

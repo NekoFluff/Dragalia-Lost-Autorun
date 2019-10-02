@@ -1,7 +1,7 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import tensorflow as tf
-
+import numpy as np
 from tensorflow.keras import datasets, layers, models
 import matplotlib.pyplot as plt
 
@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 # Normalize pixel values to be between 0 and 1
 train_images, test_images = train_images / 255.0, test_images / 255.0
 
+print(train_labels[:5])
 
 # VERIFY DATA
 class_names = ['airplane', 'automobile', 'bird', 'cat', 'deer',
@@ -49,7 +50,7 @@ model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
 
-history = model.fit(train_images, train_labels, epochs=10,
+history = model.fit(train_images, train_labels, epochs=1,
                     validation_data=(test_images, test_labels))
 
 
@@ -63,3 +64,7 @@ plt.legend(loc='lower right')
 
 test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
 print(test_acc)
+x = np.expand_dims(test_images[0], axis=0)
+print(x)
+result = model.predict(x)
+print(result)
