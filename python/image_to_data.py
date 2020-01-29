@@ -9,6 +9,7 @@ image_data = np.array([])
 image_labels = np.array([])
 labeled_images = np.array([])
 
+# Use this module to convert all pictures taken into viable training data
 
 def what_is_it(image_path):
     imgplot = plt.imshow(mpimg.imread(image_path))
@@ -35,8 +36,9 @@ def load_data():
         print('Last 5 label values:', image_labels[-5:])
 
 
-def convert_image_to_data(full_path):
-    print('Converting image {} to data'.format(full_path))
+def convert_image_to_data(full_path, suppress_log=False):
+    if (suppress_log == False):
+        print('Converting image {} to data'.format(full_path))
 
     im_frame = Image.open(full_path)
     np_frame = np.array(im_frame.getdata()).reshape((32, 32, 4))
@@ -63,7 +65,9 @@ def add_training_data(full_path):
     np.save('./data/image_data.npy', image_data)
     np.save('./data/image_labels2.npy', image_labels)
 
-
+# Attempts to convert ALL the images in the screenshots/resized folder
+# If the file name was previously used, it would re-add it'
+# Use the add_training_data method instead
 def convert_all_images():
     load_data()
 
@@ -103,9 +107,16 @@ def convert_all_images():
 
 
 if __name__ == "__main__":
-    # convert_all_images()
+    # THIS IS THE MAIN METHOD 
+    convert_all_images()
 
-    for i in range(20):
-        path = './screenshots/resized/_real-time-{}-dragon_ready.png'.format(i)
-        if os.path.exists(path):
-            add_training_data(path)
+    # THIS WAS TEMPORARY TO ADD MORE DRAGON-READY DATA
+    # for i in range(20):
+    #     path = './screenshots/resized/_real-time-{}-dragon_ready.png'.format(i)
+    #     if os.path.exists(path):
+    #         add_training_data(path)
+
+    # THIS WAS TEMPORARY TO ADD A CERTAIN TIME SKIP IMAGE TO TRAINING
+    # path = './screenshots/resized/_real-time-skip.png'
+    # add_training_data(path)
+    

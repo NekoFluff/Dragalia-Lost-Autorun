@@ -1,8 +1,9 @@
 from PIL import Image
 import os
 
-# Always crop() before calling resize()
+# This module has functions to crop and resize the photos in the screenshots folder
 
+# Always crop() before calling resize()
 box_locations = {
     'next': (750, 1750, 900, 1900),
     'skip': (900, 1750, 1050, 1900),
@@ -40,6 +41,8 @@ index_to_label = {
     16: 'ticket',
     17: 'confirm',
 }
+
+label_to_index = {v: k for k, v in index_to_label.items()}
 
 
 def crop(filename, box):
@@ -83,5 +86,5 @@ def test():
 
 
 if __name__ == "__main__":
-    test()
-    # run()
+    # test()
+    run()

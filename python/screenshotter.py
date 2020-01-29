@@ -1,7 +1,8 @@
 import subprocess
 import os
 
-
+# This module will take screenshots for you!
+# If you run this module it will take a screenshot whenever you press enter.
 def screenshot(savePath):
     subprocess.call(['adb', 'shell', 'screencap',
                      '-p', '/sdcard/screencap.png'])

@@ -6,6 +6,9 @@ import numpy as np
 from tensorflow.keras import datasets, layers, models
 import matplotlib.pyplot as plt
 
+# Run this program to train the model using data in 
+#'./data/image_data.npy' (images)
+#'./data/image_labels2.npy' (labels)
 
 def split(x, y, train_ratio=0.9):
     x_size = x.shape[0]
@@ -100,7 +103,7 @@ def create_checkpoint(model):
     model.save_weights('./checkpoints/my_checkpoint')
 
 
-def laod_checkpoint(model):
+def load_checkpoint(model):
     model.load_weights('./checkpoints/my_checkpoint')
 
 
@@ -112,7 +115,7 @@ def laod_checkpoint(model):
 
 # model = create_model()
 # test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
-# laod_checkpoint(model)
+# load_checkpoint(model)
 # test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
 
 # ---------------------

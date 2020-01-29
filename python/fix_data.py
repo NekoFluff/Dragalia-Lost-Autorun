@@ -1,6 +1,9 @@
 import os
 import numpy as np
 
+# THIS IS A FILE TO FIX RECENTLY MISLABELED DATA
+# NO LONGER IN USE
+
 image_data = None
 image_labels = None
 labeled_images = None
@@ -35,6 +38,7 @@ print(image_labels[-8])
 print(image_labels[-9])
 print(image_labels[-10])
 
+# USE THIS LINE TO FIX MISLABELED DATA
 # image_labels[-6] = 11
 new_labels = []
 for x in image_labels:
