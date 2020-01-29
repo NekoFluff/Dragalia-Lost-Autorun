@@ -4,21 +4,24 @@ import os
 # This module has functions to crop and resize the photos in the screenshots folder
 
 # Always crop() before calling resize()
+# TODO: Make values of box_locations an array. Such that they can exist in multiple locations
 box_locations = {
     'next': (750, 1750, 900, 1900),
     'skip': (900, 1750, 1050, 1900),
     'close': (450, 1175, 600, 1325),
     'home': (25, 1750, 175, 1900),
-    'upgrade': (200, 1750, 350, 1900),
-    'teams': (375, 1750, 525, 1900),
-    'castle': (550, 1750, 700, 1900),
-    'summon': (725, 1750, 875, 1900),
+    'upgrade': (375, 1750, 525, 1900),
+    'teams': (550, 1750, 700, 1900),
+    'castle': (725, 1750, 875, 1900),
+    'summon': (900, 1750, 1050, 1900)
     'dragon_ready': (25, 1400, 225, 1600),
     'auto_enabled': (925, 365, 1075, 515),
+    #'more': (a,b,c,d),
     'repeat': (115, 1750, 265, 1900),
     'stamina': (700, 1350, 900, 1550),
     'ticket': (300, 1350, 500, 1550),
     'confirm': (700, 1200, 850, 1350),
+    'quests': (200, 1750, 350, 1900), # no data
 }
 
 index_to_label = {
@@ -40,6 +43,7 @@ index_to_label = {
     15: 'stamina',
     16: 'ticket',
     17: 'confirm',
+    18: 'quests',
 }
 
 label_to_index = {v: k for k, v in index_to_label.items()}

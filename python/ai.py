@@ -46,11 +46,10 @@ def auto_pic():
 
 # IDEA: Store check_if_exist results and reset after every screenshot
 def auto_run_dungeon(times):
-    real_time_image_path = './screenshots/_real-time.png'
     index = 0
     while(times > 0):
-        time.sleep(2.5)
-        screenshot(real_time_image_path)
+        time.sleep(3)
+        screenshot('./screenshots/_real-time.png')
         # press_next_if_ready()
         press_skip_if_ready()
         press_close_if_ready()
@@ -62,7 +61,7 @@ def auto_run_dungeon(times):
         press_dragon_if_ready()
         press_auto_enable_if_disabled()
         # press_more_if_ready()
-        if not check_if_exists('stamina', '_real-time') and not check_if_exists('confirm', '_real-time') and100press_repeat_if_ready():
+        if not check_if_exists('stamina', '_real-time') and not check_if_exists('confirm', '_real-time') and press_repeat_if_ready():
             times -= 1
         press_stamina_if_ready()
 
@@ -74,7 +73,10 @@ def tap_at_point(x, y):
     subprocess.call(['adb', 'shell', 'input',
                          'tap', x, y])
     print('Tapped at', (x,y))
-    time.sleep(1.25)
+    time.sleep(1)
+    screenshot('./screenshots/_real-time.png')
+
+    #TODO: Take new screenshot
 
 def press_next_if_ready():
     if check_if_exists('next', '_real-time'):
